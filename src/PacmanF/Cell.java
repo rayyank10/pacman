@@ -1,43 +1,29 @@
 package PacmanF;
 
-import javax.swing.*;
+import javax.swing.BorderFactory;
+import javax.swing.JLabel;
 import javax.swing.border.Border;
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Graphics;
 
+/**
+ * A class for producing a Cell with a color.
+ */
 public class Cell extends JLabel
 {
-	
-    Color backgroundColor;
-    Border blackBorder=BorderFactory.createLineBorder(Color.BLACK);
-
     /**
-     * Sets the background image 
-     * @param backgroundImage
-     */
-    public void setBackgroundImage(ImageIcon backgroundImage)
-    {
-        setIcon(backgroundImage);
-    }
-
-    /**
-     * Sets the background color 
-     * @param backgroundColor
+     * Constructs a Cell with a given color.
+     * @param backgroundColor the background color of the cell.
      */
     public Cell(Color backgroundColor)
     {
         this.backgroundColor=backgroundColor;
-        setBorder(blackBorder);
+        setBorder(BorderFactory.createLineBorder(Color.BLACK));
     }
 
     /**
-     * @param c
-     */
-    public void setBackgroundColor(Color c) {
-        backgroundColor = c;
-    }
-
-    /**
-     * paints the cells
+     * Sets the color to the background color.
+     * @param g the cell to paint.
      */
     @Override
     protected void paintComponent(Graphics g)
@@ -47,4 +33,5 @@ public class Cell extends JLabel
         super.paintComponent(g);
     }
 
+    private Color backgroundColor;
 }
